@@ -17,7 +17,9 @@
           <td>{{ product.quantity }}</td>
           <td>{{ product.product.product_price }}</td>
           <td>{{ product.product.product_price * product.quantity}}</td>
-          <td>Đã duyệt</td>
+          <td>
+            {{ orderedProducts[0].status }}
+          </td>
         </tr>
       </tbody>
     </table>
@@ -41,7 +43,7 @@ export default {
     methods: {
         async fetchCart() {
             try {
-                this.orderedProducts = await webService.getOrdered();
+                this.orderedProducts = await webService.getOrdered(this.$store.state.email);
             } catch (error) {
                 console.error(error);
             }

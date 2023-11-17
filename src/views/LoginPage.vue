@@ -13,8 +13,15 @@
             <label for="password" class="form-label">Mật khẩu:</label>
             <input v-model="password" type="password" id="password" class="form-control" style="width:  calc(100% + 2px);" required>
           </div>
+          <div class="" style="float: right;">
+            <a href="">Quên mật khẩu?</a>
+          </div>
           <div class="text-center">
-            <button type="submit" class="btn btn-primary">Đăng nhập</button>
+            <button type="submit" class="btn">Đăng nhập</button>
+          </div>
+          <div class="text-center">
+            Bạn chưa có tài khoản? 
+            <a href=""><i>Đăng ký</i></a>
           </div>
         </form>
       </div>

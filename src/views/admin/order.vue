@@ -19,12 +19,15 @@
                 <td>{{ order.user.name }}</td>
                 <td>{{ order.total }} đồng</td>
                 <td>
-                  <span v-if="order.status === 'pending'" class="badge bg-warning">Chờ xử lý</span>
-                  <span v-if="order.status === 'confirmed'" class="badge bg-success">Đã xác nhận</span>
-                  <span v-if="order.status === 'shipped'" class="badge bg-success">Đang giao hàng</span>
+                  <span v-if="order.status === 'Chờ duyệt'" class="badge bg-warning">Chờ xử lý</span>
+                  <span v-if="order.status === 'Đang giao'" class="badge bg-success">Đang giao hàng</span>
+                  <span v-if="order.status === 'Đã giao'" class="badge bg-success">Giao thành công</span>
                 </td>
-                <td v-if="order.status === 'pending'">
+                <td v-if="order.status === 'Chờ duyệt'">
                   <button class="btn btn-primary" @click="submitorder(order._id)">Duyệt</button>
+                </td>
+                <td v-if="order.status === 'Đã giao'">
+                  <button class="btn btn-primary" @click="submitorder(order._id)">Gửi xác nhận</button>
                 </td>
                 <td v-else></td>
               </tr>

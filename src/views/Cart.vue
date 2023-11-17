@@ -73,7 +73,7 @@ import webService from '../services/web.service';
             },
             async fetchCart() {
                 try {
-                    this.carts = await webService.getCart();
+                    this.carts = await webService.getCart(this.$store.state.email);
                 } catch (error) {
                     console.error(error);
                 }
@@ -88,6 +88,7 @@ import webService from '../services/web.service';
             async submitForm() {
               const email = this.$store.state.email;
               axios.put(`http://localhost:3004/api/ordered?email=${email}`);
+              alert('Đặt hàng thành công');
             }
         }
     }
